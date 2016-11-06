@@ -1,4 +1,4 @@
-# CAS
+# Capricorn
 Pure Java computer algebra system
 
 ## Features
