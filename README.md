@@ -50,7 +50,7 @@ Call `integrate()` on the polynomial you want to integrate, and cast to `Polynom
 ```Java
 Polynomial p = new Polynomial(t1,t2,t3);
 Polynomial sp = (Polynomial)p.integrate();
-System.out.println(dpdx);
+System.out.println(sp);
 ```
 Output:
 ```
