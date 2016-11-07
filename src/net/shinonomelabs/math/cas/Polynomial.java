@@ -54,11 +54,18 @@ public class Polynomial implements Differentiable, Integratable {
     public String toString() {
         String out = "";
         Iterator<BigDecimal> it = terms.descendingKeySet().iterator();
+        int tc=0;
+        boolean isFirstNeg=false;
         while(it.hasNext()) {
+            tc++;
             BigDecimal key = it.next();
-            out += terms.get(key).toString() + " + ";
+            Term t = terms.get(key);
+            if(t.getCoefficient().equals(BigDecimal.ZERO)) continue;
+            if(tc==1) isFirstNeg=t.getCoefficient().compareTo(BigDecimal.ZERO)==-1;
+            if(t.getCoefficient().compareTo(BigDecimal.ZERO)==1) out += " +";
+            out += t.toString();
         }
-        out = out.substring(0, out.length()-3);
+        if(!isFirstNeg) out = out.substring(2);
         return out;
     }
     
